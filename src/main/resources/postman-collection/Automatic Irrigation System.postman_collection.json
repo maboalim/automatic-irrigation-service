@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "152078a3-65da-442e-9410-cdbeebe5303a",
+		"name": "Automatic Irrigation System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13817472"
+	},
+	"item": [
+		{
+			"name": "Get Land By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/lands/-1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"lands",
+						"-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Irrigation By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/irrigations/-1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"irrigations",
+						"-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Irrigation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"landId\": -1,\r\n    \"irrigationType\": \"SPRINKLER\",\r\n    \"amountOfWater\": 1000.0,\r\n    \"liquidUnit\": \"GALLON\",\r\n    \"duration\": 3600,\r\n    \"interval\": 21600.0,\r\n    \"irrigationStatus\": \"ACTIVE\",\r\n    \"nextIrrigationAt\": \"2022-11-20T14:30:15.620801\",\r\n    \"createdAt\": \"2022-11-20T14:30:15.620801\",\r\n    \"updatedAt\": \"2022-11-20T14:30:15.620801\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/irrigations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"irrigations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Irrigation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"irrigationType\": \"SPRINKLER\",\r\n    \"amountOfWater\": 1200.0,\r\n    \"liquidUnit\": \"GALLON\",\r\n    \"duration\": 3600,\r\n    \"interval\": 21600.0,\r\n    \"irrigationStatus\": \"ACTIVE\",\r\n    \"nextIrrigationAt\": \"2022-11-20T14:30:15.620801\",\r\n    \"createdAt\": \"2022-11-20T14:36:03.4079959\",\r\n    \"updatedAt\": \"2022-11-20T14:36:03.4079959\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/irrigations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"irrigations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Irrigation With Invalid Parameters",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"irrigationType\": \"SPRINKLER\",\r\n    \"amountOfWater\": 1200.0,\r\n    \"liquidUnit\": \"GALLON\",\r\n    \"duration\": 3600,\r\n    \"interval\": 21600.0,\r\n    \"irrigationStatus\": \"ACTIVE\",\r\n    \"nextIrrigationAt\": \"2022-11-20T14:30:15.620801\",\r\n    \"createdAt\": \"2022-11-20T14:36:03.4079959\",\r\n    \"updatedAt\": \"2022-11-20T14:36:03.4079959\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/irrigations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"irrigations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Lands",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/lands",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"lands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Plot Of Land",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Corn Land\",\r\n    \"description\": \"Big corn land in CA\",\r\n    \"latitude\": 59.3145508,\r\n    \"longitude\": 18.0682806,\r\n    \"cultivatedArea\": 2000.0,\r\n    \"areaUnit\": \"SQUARE_METER\",\r\n    \"agriculturalCropType\": \"CORN\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/lands",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"lands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Plot with Irrigation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Corn Land\",\r\n    \"description\": \"Big corn land in CA\",\r\n    \"latitude\": 59.3145508,\r\n    \"longitude\": 18.0682806,\r\n    \"cultivatedArea\": 2000.0,\r\n    \"areaUnit\": \"SQUARE_METER\",\r\n    \"agriculturalCropType\": \"CORN\",\r\n    \"irrigation\": {\r\n        \"irrigationType\": \"SPRINKLER\",\r\n        \"amountOfWater\": 1000.0,\r\n        \"liquidUnit\": \"GALLON\",\r\n        \"duration\": 3600,\r\n        \"interval\": 21600.0,\r\n        \"irrigationStatus\": \"ACTIVE\",\r\n        \"nextIrrigationAt\": \"2022-11-20T14:30:15.620801\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/lands",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"lands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Plot of Land with Irrigation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": -1,\r\n    \"name\": \"Corn Land\",\r\n    \"description\": \"Big corn land in CA\",\r\n    \"latitude\": 59.3145508,\r\n    \"longitude\": 18.0682806,\r\n    \"cultivatedArea\": 2500.0,\r\n    \"areaUnit\": \"SQUARE_METER\",\r\n    \"agriculturalCropType\": \"CORN\",\r\n    \"irrigation\": {\r\n        \"id\": -1,\r\n        \"irrigationType\": \"SPRINKLER\",\r\n        \"amountOfWater\": 1000.0,\r\n        \"liquidUnit\": \"GALLON\",\r\n        \"duration\": 3600,\r\n        \"interval\": 21600.0,\r\n        \"irrigationStatus\": \"ACTIVE\",\r\n        \"nextIrrigationAt\": \"2022-11-20T14:52:23.634137\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/irrigation-service/api/v1/lands",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"lands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mock Sensor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/irrigation-service/api/v1/sensor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"irrigation-service",
+						"api",
+						"v1",
+						"sensor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
