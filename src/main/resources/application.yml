@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /irrigation/api/v1
+    context-path: /irrigation-service/api/v1
 
 spring:
   application:

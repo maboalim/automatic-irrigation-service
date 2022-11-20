@@ -4,6 +4,7 @@ import com.andela.irrigation.enums.AgriculturalCropType;
 import com.andela.irrigation.enums.AreaUnit;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder(toBuilder = true)
-public class LandDto {
+public class LandDto extends RepresentationModel<LandDto> {
 
     private Long id;
 

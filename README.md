@@ -4,20 +4,20 @@
 ## API Documentation
 The documentation for the APIs is created using Open API - Swagger
 Below URL represent the documentation API
-http://localhost:8080/irrigation/api/v1/swagger-ui/index.html
+http://localhost:8080/irrigation-service/api/v1/swagger-ui/index.html
 
 ## Database
 The used database in this project is H2 in-memory database.
 To access the database, use the below URL with the username/password in application.yml file
-http://localhost:8080/irrigation/api/v1/h2-console/login.jsp
+http://localhost:8080/irrigation-service/api/v1/h2-console/login.jsp
 
 ## Test
 ### Get Land By Id
-curl -i --location --request GET 'localhost:8080/irrigation/api/v1/lands/-1' \
+curl -i --location --request GET 'localhost:8080/irrigation-service/api/v1/lands/-1' \
 --header 'Content-Type: application/json'
 
 ### Register Land
-curl -i --location --request POST 'localhost:8080/irrigation/api/v1/lands' \
+curl -i --location --request POST 'localhost:8080/irrigation-service/api/v1/lands' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "name": "Corn Land",
@@ -30,7 +30,7 @@ curl -i --location --request POST 'localhost:8080/irrigation/api/v1/lands' \
 }'
 
 ## Register land with irrigation configuration
-curl -i --location --request POST 'localhost:8080/irrigation/api/v1/lands' \
+curl -i --location --request POST 'localhost:8080/irrigation-service/api/v1/lands' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "name": "Corn Land",
@@ -52,7 +52,7 @@ curl -i --location --request POST 'localhost:8080/irrigation/api/v1/lands' \
 }'
 
 ### Update Land with Irrigation
-curl --location --request PUT 'localhost:8080/irrigation/api/v1/lands' \
+curl --location --request PUT 'localhost:8080/irrigation-service/api/v1/lands' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id": -1,
@@ -76,15 +76,15 @@ curl --location --request PUT 'localhost:8080/irrigation/api/v1/lands' \
 }'
 
 ### Get All Lands with its irrigation details
-curl -i --location --request GET 'localhost:8080/irrigation/api/v1/lands' \
+curl -i --location --request GET 'localhost:8080/irrigation-service/api/v1/lands' \
 --header 'Content-Type: application/json'
 
 ### Get Irrigation by Id
-curl -i --location --request GET 'localhost:8080/irrigation/api/v1/irrigations/-1' \
+curl -i --location --request GET 'localhost:8080/irrigation-service/api/v1/irrigations/-1' \
 --header 'Content-Type: application/json'
 
 ### Create New Irrigation
-curl -i --location --request POST 'localhost:8080/irrigation/api/v1/irrigations' \
+curl -i --location --request POST 'localhost:8080/irrigation-service/api/v1/irrigations' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "landId": -1,
@@ -100,7 +100,7 @@ curl -i --location --request POST 'localhost:8080/irrigation/api/v1/irrigations'
 }'
 
 ## Update existing irrigation
-curl --location --request PUT 'localhost:8080/irrigation/api/v1/irrigations' \
+curl --location --request PUT 'localhost:8080/irrigation-service/api/v1/irrigations' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id": 1,
