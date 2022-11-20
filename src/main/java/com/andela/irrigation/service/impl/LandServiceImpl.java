@@ -1,11 +1,13 @@
-package com.andela.irrigation.service;
+package com.andela.irrigation.service.impl;
 
 import com.andela.irrigation.entity.Land;
 import com.andela.irrigation.exception.ResourceNotFoundException;
 import com.andela.irrigation.payload.converter.LandConverter;
 import com.andela.irrigation.payload.dto.LandDto;
 import com.andela.irrigation.repository.LandRepository;
+import com.andela.irrigation.service.LandService;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -14,19 +16,14 @@ import java.util.Collection;
 
 @AllArgsConstructor
 @Service
+@Log4j2
 public class LandServiceImpl implements LandService {
     private final LandRepository landRepository;
 
     @Override
     public LandDto getLandById(Long id) {
         Land land = landRepository.getReferenceById(id);
-        if (land == null) {
-            throw new ResourceNotFoundException("Invalid id");
-        } else {
-            land.getId();
-            land.getAreaUnit();
-            land.getIrrigation();
-        }
+        log.debug("landId={}, with unit area={}", land.getId(), land.getAreaUnit());
         return LandConverter.toLandDto(land);
     }
 
@@ -36,7 +33,6 @@ public class LandServiceImpl implements LandService {
         if (CollectionUtils.isEmpty(lands)) {
             throw new ResourceNotFoundException("Invalid id");
         }
-        lands.stream().findFirst().get().getId();
         return LandConverter.toLandDto(lands);
     }
 
@@ -49,9 +45,13 @@ public class LandServiceImpl implements LandService {
         LocalDateTime now = LocalDateTime.now();
         Land land = LandConverter.toLand(landDto);
         if (land.getId() == null) {
+            //create new land
             land.setCreatedAt(now);
             if (land.getIrrigation() != null) {
                 land.getIrrigation().setCreatedAt(now);
+                if (land.getIrrigation().getNextIrrigationAt() == null) {
+                    land.getIrrigation().setNextIrrigationAt(LocalDateTime.now());
+                }
             }
         } else {
             //Not allowed to update created At field

@@ -21,8 +21,55 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: <login user to smtp server>
+    password: <login password to smtp server>
+    properties:
+      mail:
+        smtp:
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          auth: true
+          starttls:
+            enable: true
+
 flyway:
   locations: classpath:/db/migration
+
+irrigation-service:
+  irrigation-check-scheduler: 120000
+  mail:
+    from: noreply@automatic-irrigation-service.com
+    to: mina.aboalim@gmail.com
+
+
+feign:
+  circuitbreaker:
+    enabled: true
+
+resilience4j:
+  retry:
+    instances:
+      retryTriggerSensor:
+        max-attempts: 5
+        wait-duration: 5s
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
+
+  circuitbreaker:
+    instances:
+      triggerSensorCircuitBreaker:
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 4
+        sliding-window-type: count-based
+        sliding-window-size: 6
+        minimum-number-of-calls: 6
+        slow-call-duration-threshold: 15s
+        slow-call-rate-threshold: 60
+        failure-rate-threshold: 60
 
 logging:
   file:
