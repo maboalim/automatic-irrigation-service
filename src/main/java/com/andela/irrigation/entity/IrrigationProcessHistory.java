@@ -17,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -52,4 +53,7 @@ public class IrrigationProcessHistory {
     @CreationTimestamp
     @NotNull
     private LocalDateTime createdAt;
+
+    @Version
+    private Long version;
 }

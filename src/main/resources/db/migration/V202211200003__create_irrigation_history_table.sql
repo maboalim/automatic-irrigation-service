@@ -6,4 +6,5 @@ irrigation_type VARCHAR(250),
 amount_of_water DOUBLE,
 liquid_unit VARCHAR(100),
 duration INT,
-created_at TIMESTAMP NOT NULL DEFAULT now())
+created_at TIMESTAMP NOT NULL DEFAULT now(),
+version BIGINT)

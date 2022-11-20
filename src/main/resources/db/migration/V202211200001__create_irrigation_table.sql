@@ -8,5 +8,6 @@ delay_interval DOUBLE NOT NULL,
 irrigation_status VARCHAR(100) NOT NULL,
 next_irrigation_at TIMESTAMP DEFAULT now(),
 created_at TIMESTAMP NOT NULL DEFAULT now(),
-updated_at TIMESTAMP NOT NULL DEFAULT now()
+updated_at TIMESTAMP NOT NULL DEFAULT now(),
+version BIGINT
 )

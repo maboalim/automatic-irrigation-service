@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Version;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -71,4 +72,7 @@ public class Land {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "irrigation_id", referencedColumnName = "id")
     private Irrigation irrigation;
+
+    @Version
+    private Long version;
 }
